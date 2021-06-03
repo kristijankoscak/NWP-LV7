@@ -1,0 +1,12 @@
+if locals.user
+	div#menu
+		span(class=name)
+			=user.name
+		a(href='/projects')  Projekti
+		a(href='/projects/archive')  Arhiva
+		a(href='/projects/new')  Dodaj
+		a(href='/logout')  Odjava
+else
+	div#menu
+		a(href='/login')  Prijava
+		a(href='/register')  Registracija

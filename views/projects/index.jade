@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    include ../menu
+    h1.
+         #{title}
+    
+    div 
+        table 
+            thead 
+                tr 
+                    th ID
+                    th Project name
+                    th Project price
+                    th Action
+            tbody 
+                each project, i in projects 
+                    if project.owner == locals.user.id
+                        tr 
+                            td= project._id
+                            td= project.name
+                            td= project.price
+                            td 
+                                form(action='/projects/#{project._id}/edit',method='post',enctype='application/x-www-form-urlencoded') 
+                                    input(type='hidden',value='DELETE',name='_method')
+                                    button(type='submit').
+                                        Delete 
+                                p 
+                                    a(href='/projects/#{project._id}/edit') 
+                                        button(type='button') Edit
+                                p
+                                    a(href='/projects/#{project._id}') 
+                                        button(type='button') Show

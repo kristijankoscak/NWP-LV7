@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+	include ../menu
+	h1.
+		#{title}
+	form#formAddBlob(name="addproject",method="post",action="/projects")
+		p Project name: 
+			input#inputName(type="text", placeholder="ex. Project", name="name")
+		p Description:
+			input#inputDescription(type="text", placeholder="ex. Very good project.", name="description")
+		p Price:
+			input#inputPrice(type="number", placeholder="ex. 123123123", name="price")
+		p Done job:
+			textarea#inputDoneJob(placeholder="ex. -that , that, that", name="doneJob", rows="4")
+		p Workers:
+			textarea#inputWorkers(placeholder="test@test.com, test2@test.com", name="workers", rows="4")
+		p Start time:
+			input#inputStartDate(type="date", name="startDate")
+		p End time:
+			input#inputEndDate(type="date", name="endDate")
+		p
+			button#btnSubmit(type="submit") Submit

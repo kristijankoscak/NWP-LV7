@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    style(type="text/css").
+      a{
+        margin-right: 5px;
+      }
+  body
+    if locals.user
+      block content
+    else
+      include menu

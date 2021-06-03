@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    include ../menu
+    h1.
+         #{title}
+    
+    div 
+        table 
+            thead 
+                tr 
+                    th ID
+                    th Project name
+                    th Project price
+            tbody 
+                each project, i in projects 
+                    if project.archived == true && project.owner == locals.user.id
+                        tr 
+                            td= project._id
+                            td= project.name
+                            td= project.price

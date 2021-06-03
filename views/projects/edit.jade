@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+	include ../menu
+	h1.
+		#{title}
+	form#formAddproject(name="updateproject",method="post",action="/projects/#{project._id}/edit",enctype='application/x-www-form-urlencoded')
+		p Project name: 
+			input#inputName(type="text", value='#{project.name}', name="name")
+		p Description:
+			input#inputDescription(type="text", value='#{project.description}', name="description")
+		p Price:
+			input#inputPrice(type="number",value='#{project.price}', name="price")
+		p Done job:
+			textarea#inputDoneJob(name="doneJob", rows="4").form-control= project.doneJob
+		p Workers:
+			textarea#inputWorkers(name="workers", rows="4").form-control= project.workers
+		p Start time:
+			input#inputStartDate(type="date", value='#{projectStartDate}', name="startDate")
+		p End time:
+			input#inputEndDate(type="date", value='#{projectEndDate}', name="endDate")
+		p Archived: #{archived}
+			input#inputArchived(type="checkbox", checked=project.archived , name="archived")
+		p
+			input(type='hidden',value='PUT',name='_method') 
+		p
+			button#btnSubmit(type="submit") Update

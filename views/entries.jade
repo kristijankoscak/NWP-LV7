@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    meta(http-equiv="content-type", content="#{contentType}; charset=UTF-8")
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    include menu
+    each entry in entries
+      div.entry
+        h3
+          =entry.title
+        p
+          =entry.body
+        p
+          span  Objavio 
+          =entry.username
+    include pager

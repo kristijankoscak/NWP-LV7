@@ -1,0 +1,31 @@
+extends ../layout
+
+block content
+    include ../menu
+    h1.
+         #{title}
+    span Project name: 
+        span #{project.name}
+    br
+    span Project description: 
+        span #{project.description}
+    br
+    span Project done job: 
+        span #{project.doneJob}
+    br
+    span Project price: 
+        span #{project.price}
+    br
+    span Project start date: 
+        span #{projectStartDate}
+    br
+    span Project end date: 
+        span #{projectEndDate}
+    br
+    span 
+        a(href='/projects/#{project._id}/edit') 
+            button(type='button') Edit
+    form(action='/projects/#{project._id}/edit',method='post',enctype='application/x-www-form-urlencoded') 
+        input(type='hidden',value='DELETE',name='_method')
+        button(type='submit').
+            Delete 
